@@ -1,0 +1,4 @@
+extends layout
+block appbar
+  - user = JSON.parse(data)
+  hola #{user.username} #{user.apellidos} !
