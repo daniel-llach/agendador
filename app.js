@@ -29,6 +29,7 @@ app.use(express.static(__dirname + '/public'));
  * A simple middleware to restrict access to authenticated users.
  */
  var tokenacces = require('./controls/getToken');
+ var getscenarios = require('./controls/getscenarios');
 
 /*
  * Start listening
@@ -37,8 +38,12 @@ var server = app.listen(3000, function() {
 	console.log('Agendador Listening on port %d'.green, server.address().port)
 });
 
-
-// register form
-app.get('/', tokenacces, function(req, res){
-  // res.render('index', {data: {data:'data'} });
+/*
+ * Protected routes
+ */
+app.get('/', tokenacces, getscenarios, function(req, res){
+    res.render('index',{
+      user: req.user,
+      scenarios: req.scenarios
+    } );
 });
