@@ -20,7 +20,6 @@ module.exports = function(req, res, next){
           res.redirect(303, 'http://localhost:4000/login');
         }
         if(user){
-          console.log("user: ", user);
           req.user = user;
           return next();
         }else{

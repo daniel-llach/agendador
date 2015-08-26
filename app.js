@@ -5,8 +5,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var colors = require('colors');
 var url = require('url'); // req.body
-// var fs = require('fs');
-// var io = require('socket.io');
+var fs = require('fs');
+var io = require('socket.io');
 
 /*
  * Create Express app
@@ -50,8 +50,7 @@ app.get('/', getToken, getScenarios, function(req, res){
       scenarios: req.scenarios
     });
     // set locals
-    // app.locals.user = JSON.parse(req.user);
-    console.log("set locals.user");
+    app.locals.user = JSON.parse(req.user);
 });
 
 /*
@@ -64,10 +63,9 @@ app.get('/resultados/:proceso_id/:semana_id', getResultados, function(req, res){
 /*
  * Socket.io connections
  */
-// var serv_io = io.listen(server);
-// serv_io.sockets.on('connection', function(socket) {
-//   socket.on('testconnection', function(){
-//     socket.broadcast.emit('testthis','Hola el servidor te saluda');
-//     console.log("hola alert");
-//   });
-// });
+var serv_io = io.listen(server);
+serv_io.sockets.on('connection', function(socket) {
+  socket.on('testconnection', function(){
+    socket.broadcast.emit('testthis', app.locals.user.username + ' acaba de iniciar sesion');
+  });
+});

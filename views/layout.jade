@@ -26,7 +26,7 @@ html
     var socket = io.connect('http://localhost:3000');
     socket.emit('testconnection');
     socket.on('testthis', function(data){
-      alert(data);
+      $('#message').html(data);
     });
     
     
