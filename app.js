@@ -30,6 +30,7 @@ app.use(express.static(__dirname + '/public'));
  */
  var tokenacces = require('./controls/getToken');
  var getscenarios = require('./controls/getscenarios');
+ var getresultados = require('./controls/getresultados');
 
 /*
  * Start listening
@@ -45,5 +46,13 @@ app.get('/', tokenacces, getscenarios, function(req, res){
     res.render('index',{
       user: req.user,
       scenarios: req.scenarios
-    } );
+    });
+});
+
+/*
+ * Unprotected routes
+ */
+
+app.get('/resultados/:proceso_id/:semana_id', getresultados, function(req, res){
+  res.json(req.resultados);
 });

@@ -13,8 +13,6 @@ module.exports = function(req, res, next){
       if (err) {
         return console.error('get failed:', err);
       }
-      // res.render('index', {data:user});
-      console.log("user: ", user);
       req.user = user;
       return next();
     })
@@ -33,7 +31,6 @@ module.exports = function(req, res, next){
         }else{
           localStorage.setItem('access_token', tokenUri);
           req.user = user;
-          // res.render('index', {data:user});
           return next();
         }
       })

@@ -1,9 +1,26 @@
 extends layout
 block appbar
+  
   - user = JSON.parse(user)
   - scenarios = JSON.parse(scenarios)
-  p hola #{user.username} #{user.apellidos} !
-  p estas en #{scenarios[0].id}
+    
+  .appbar
+    .item
+      each scenario, i in scenarios  
+        if scenario.active == true
+          #escenarios  #{scenario.database}
+    .item
+      #menuapps.menuapps
+    .item
+      #loginbar #{user.username}
+      
+  
+  
+  //- script.
+  //-   // set user from Back
+  //-   var user = '!{user}';
+  //-   user = JSON.parse(user);
+  
   
     
   
