@@ -5,6 +5,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var colors = require('colors');
 var url = require('url'); // req.body
+// var fs = require('fs');
+// var io = require('socket.io');
 
 /*
  * Create Express app
@@ -28,9 +30,9 @@ app.use(express.static(__dirname + '/public'));
 /*
  * A simple middleware to restrict access to authenticated users.
  */
- var tokenacces = require('./controls/getToken');
- var getscenarios = require('./controls/getscenarios');
- var getresultados = require('./controls/getresultados');
+ var getToken = require('./controls/getToken');
+ var getScenarios = require('./controls/getScenarios');
+ var getResultados = require('./controls/getResultados');
 
 /*
  * Start listening
@@ -42,17 +44,30 @@ var server = app.listen(3000, function() {
 /*
  * Protected routes
  */
-app.get('/', tokenacces, getscenarios, function(req, res){
+app.get('/', getToken, getScenarios, function(req, res){
     res.render('index',{
       user: req.user,
       scenarios: req.scenarios
     });
+    // set locals
+    // app.locals.user = JSON.parse(req.user);
+    console.log("set locals.user");
 });
 
 /*
  * Unprotected routes
  */
-
-app.get('/resultados/:proceso_id/:semana_id', getresultados, function(req, res){
+app.get('/resultados/:proceso_id/:semana_id', getResultados, function(req, res){
   res.json(req.resultados);
 });
+
+/*
+ * Socket.io connections
+ */
+// var serv_io = io.listen(server);
+// serv_io.sockets.on('connection', function(socket) {
+//   socket.on('testconnection', function(){
+//     socket.broadcast.emit('testthis','Hola el servidor te saluda');
+//     console.log("hola alert");
+//   });
+// });
