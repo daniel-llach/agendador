@@ -64,7 +64,6 @@ app.get('/resultados/:proceso_id/:semana_id', getResultados, function(req, res){
   res.json(req.resultados);
 });
 
-
 /*
  * Socket.io connections
  */

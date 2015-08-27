@@ -37,9 +37,7 @@ block appbar
         }
     };
     var token = getUrlParameter('t');
-    localStorage.setItem('access_token', token);   
-    console.log("setItem: ", token);
-    
+    localStorage.setItem('access_token', token);       
     
     // socket io
     var socket = io.connect('http://localhost:3000');
