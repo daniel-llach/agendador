@@ -7,6 +7,7 @@ var colors = require('colors');
 var url = require('url'); // req.body
 var fs = require('fs');
 var io = require('socket.io');
+var config = require('./config');
 
 /*
  * Create Express app
@@ -48,12 +49,15 @@ app.get('/', getToken, getScenarios, function(req, res){
     if(req.user || req.escenarios){
       res.render('index',{
         user: req.user,
-        scenarios: req.scenarios
+        scenarios: req.scenarios,
+        url_agendador: config.url_agendador
       });
       // set locals
       app.locals.user = JSON.parse(req.user);
     }else{
-      res.render('getAccess');
+      res.render('getAccess',{
+        url_agendador: config.url_agendador
+      });
     }
 });
 

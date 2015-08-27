@@ -15,14 +15,13 @@ block appbar
       #loginbar #{user.username}
       
   
-  
   //- script.
   //-   // set user from Back
   //-   var user = '!{user}';
   //-   user = JSON.parse(user);
-  
+  script(src="#{url_agendador}/socket.io/socket.io.js")
   script(type="text/javascript").
-    // set token to local storage
+    // set token from url to local storage
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'),
@@ -40,7 +39,7 @@ block appbar
     localStorage.setItem('access_token', token);       
     
     // socket io
-    var socket = io.connect('http://localhost:3000');
+    var socket = io.connect('#{url_agendador}');
     socket.emit('testconnection');
     socket.on('testthis', function(data){
       $('#message').html(data);
