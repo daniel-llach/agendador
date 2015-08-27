@@ -16,6 +16,9 @@ module.exports = function(req, res, next){
         return next();
       }
     })
+  }else{
+    req.escenarios = null;
+    return next();
   }
 
 }

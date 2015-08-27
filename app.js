@@ -45,12 +45,16 @@ var server = app.listen(3000, function() {
  * Protected routes
  */
 app.get('/', getToken, getScenarios, function(req, res){
-    res.render('index',{
-      user: req.user,
-      scenarios: req.scenarios
-    });
-    // set locals
-    app.locals.user = JSON.parse(req.user);
+    if(req.user || req.escenarios){
+      res.render('index',{
+        user: req.user,
+        scenarios: req.scenarios
+      });
+      // set locals
+      app.locals.user = JSON.parse(req.user);
+    }else{
+      res.render('getAccess');
+    }
 });
 
 /*
@@ -59,6 +63,7 @@ app.get('/', getToken, getScenarios, function(req, res){
 app.get('/resultados/:proceso_id/:semana_id', getResultados, function(req, res){
   res.json(req.resultados);
 });
+
 
 /*
  * Socket.io connections

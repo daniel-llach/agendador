@@ -22,12 +22,7 @@ html
     a(href="#", class="logoForis")
     .fraseEmpresa DESARROLLADO POR
     
-  script(type="text/javascript").
-    var socket = io.connect('http://localhost:3000');
-    socket.emit('testconnection');
-    socket.on('testthis', function(data){
-      $('#message').html(data);
-    });
+  
     
     
   
