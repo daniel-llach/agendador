@@ -1,6 +1,6 @@
 {
-  "name": "darwinedLogin",
-  "description": "Account user modelule",
+  "name": "agendadorDarwinEd",
+  "description": "Scheduler app for darwinEd",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -14,9 +14,11 @@
     "request": "2.61.0",
     "async": "1.4.2",
     "underscore": "1.8.3",
-    "socket.io": "1.3.6"
+    "socket.io": "1.3.6",
+    "bower": "1.5.2"
   },
   "scripts": {
+    "postinstall": "bower install",
     "start": "node app.js"
   }
 }

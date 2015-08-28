@@ -1,10 +1,10 @@
 /*
  * Routers
  */
-module.exports.url_agendador = 'http://localhost:3000';
-module.exports.url_daccount = 'http://localhost:4000';
-module.exports.url_faccount = 'http://localhost:5000';
-module.exports.url_darwined = 'http://localhost/darwined/big_branch';
+module.exports.url_agendador = 'agendadorapp.herokuapp.com';
+module.exports.url_daccount = 'daccount.herokuapp.com';
+module.exports.url_faccount = 'faccount.herokuapp.com';
+module.exports.url_darwined = 'http://186.67.218.180/AIEP/darwined/big_branch';
 
 /*
  * CONFIG DATABASE
