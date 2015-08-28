@@ -1,6 +1,5 @@
 var url = require('url')
 var mysql = require('mysql');
-var localStorage = require('localStorage');
 var request = require('request');
 var config = require('./../config');
 
