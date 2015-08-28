@@ -28,7 +28,7 @@ define([
 
     $.ajax({
       method: "GET",
-      url: "http://localhost:3000/resultados/35/2" // proceso_id/semana_id
+      url: "https://agendadorapp.herokuapp.com/resultados/66/2" // proceso_id/semana_id
     }).done(function( data ) {
       console.log("data: ", data);
     });
