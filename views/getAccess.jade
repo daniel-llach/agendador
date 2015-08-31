@@ -1,6 +1,6 @@
 extends layout
 block appbar
   script(type="text/javascript").
-    var access_token = localStorage.getItem('access_token');
+    var access_token = document.getElementById("result").innerHTML = localStorage.getItem("access_token");
     console.log("localstorage getAcces: ", access_token);
     window.location.replace("#{url_agendador}/?t=" + access_token);
