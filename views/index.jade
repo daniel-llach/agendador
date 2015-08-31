@@ -36,9 +36,7 @@ block appbar
         }
     };
     var token = getUrlParameter('t');
-    console.log( localStorage.getItem('access_token') );
     localStorage.setItem('access_token', token);      
-    console.log("localstorage set: ", token); 
     
     // socket io
     var socket = io.connect('#{url_agendador}');
