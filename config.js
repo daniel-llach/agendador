@@ -4,7 +4,7 @@
 module.exports.url_agendador = 'https://agendadorapp.herokuapp.com';
 module.exports.url_daccount = 'https://daccount.herokuapp.com';
 module.exports.url_faccount = 'https://faccount.herokuapp.com';
-module.exports.url_darwined = 'https://186.67.218.180/clients/darwined_demo';
+module.exports.url_darwined = 'http://186.67.218.180/clients/darwined_demo';
 
 /*
  * CONFIG DATABASE
